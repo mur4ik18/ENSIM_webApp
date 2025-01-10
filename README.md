@@ -1,5 +1,7 @@
 # ENSIM_webApp
 
+Github: https://github.com/mur4ik18/ENSIM_webApp
+
 ## Description
 ### Spring Web
 Permet de créer des applications web en Java. Il est basé sur le framework Spring et utilise le modèle MVC 
@@ -62,3 +64,27 @@ En utilisant le lien suivant:
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 ```
 Ce sont les cdn qui permettent d'importer les fichiers css et js de bootstrap.
+
+
+
+
+# TP2
+## Faut-il une clé API pour appeler MeteoConcept ?
+Oui, il faut une clé API pour appeler MeteoConcept.
+```java
+token = b7d1d6d1a540b98a0ec2ea7472db82a9434066ca5e0896e49817b4546306d785
+```
+## Quelle URL appeler ?
+```
+https://api.meteo-concept.com/api/forecast/nextHours?token=b7d1d6d1a540b98a0ec2ea7472db82a9434066ca5e0896e49817b4546306d785&latlng=x,y&world=false&start=0&end=1
+```
+## Quelle méthode HTTP utiliser ?
+GET
+## Comment passer les paramètres d'appels ?
+En utilisant les paramètres de l'URL comme latlng, world, start, end
+url + param1 + param2 + param3 + param4 + param5
+## Où est l'information dont j'ai besoin dans la réponse :
+### Pour afficher la température du lieu visé par les coordonnées GPS
+meteo.forecast[0].temp2m
+### Pour afficher la prévision de météo du lieu visé par les coordonnées GPS
+meteo.forecast[0].weather
