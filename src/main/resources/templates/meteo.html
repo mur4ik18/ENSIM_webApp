@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Meteo</title>
+    <meta http-equiv="Content-Type" content="text/html ; charset=UTF-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div th:replace="fragments/navbar"></div>
+
+<!-- Show city and forecast -->
+
+<h1 ></h1>
+
+<div class="container my-5">
+    <h1 class="text-center mb-4" th:text="'Weather Forecast for ' + ${data.city.name()}"></h1>
+    <div class="card">
+        <div class="card-header" th:text="'Updated on: ' + ${data.update()}">
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Location Details</h5>
+            <p class="card-text" th:text="'City: ' + ${data.city.name()}"></p>
+            <p class="card-text" th:text="'Postal Code: ' + ${data.city.cp()}"></p>
+            <p class="card-text" th:text="'Latitude: ' + ${data.city.latitude()}"></p>
+            <p class="card-text" th:text="'Longitude: ' + ${data.city.longitude()}"></p>
+            <p class="card-text" th:text="'Altitude: ' + ${data.city.altitude()}"></p>
+        </div>
+    </div>
+
+    <h2 class="text-center my-4">Forecast</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <!-- Forecast Cards -->
+        <div class="col">
+            <div class="card">
+                <div class="card-header" th:text="${data.forecast[0].datetime()}">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title" th:text="'Temperature: '+${data.forecast[0].temp2m()} + '°C'"></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
